@@ -1,17 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function MisFilas() {
+  let bebidas = ['malta','cola','pepsi']
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  
+  let username = 'Ricardo'
+
+  return (
+    <>
+      <h1>El usuario:</h1>
+      {  username !==''  &&  <h2>Es {username}</h2> } 
+      {  username ===''  &&  <h2>No está logeado</h2> } 
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+      </tr>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        {bebidas.map(ar=>(<td key={ar}> {ar} </td>))}
+      </tr>
+    </>);
+}
+
+function MiTabla() {
+
+
+  return (
+    <>
+      <table>
+        <tbody>
+          <MisFilas/>
+        </tbody>
+      </table>
+    </>
+  )
+}
+
+ReactDOM.render(<MiTabla />, document.querySelector('#root'));
